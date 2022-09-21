@@ -1,0 +1,18 @@
+<h1>{{appName}}</h1>
+<h2>Event Binding</h2>
+<button (click)="showData($event)">Click here</button><br><br>
+<button on-click="showData()">Click here</button><br><br>
+
+<!-- property binding -->
+<input type="text" [value]="userName">
+
+<!-- class binding -->
+<p [class]="myCSSClass">This paragraph class comes from *myClass* property</p>
+<p [class.blue]="applyCSSClass">This paragraph class does not apply</p>
+
+<!-- style binding -->
+<p [style.color]="myColor">Text color is styled using style binding </p>
+
+<!-- two-way data binding-->
+<input type="text" [(ngModel)]="userName" />
+<p>Two way binding! Hello {{userName}}!</p>
