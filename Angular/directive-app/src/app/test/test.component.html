@@ -1,0 +1,72 @@
+<h2>ngIfElse Example</h2>
+<div *ngIf="isLogIn; else isLogOut">
+  Hello you are logged in...
+</div>
+<ng-template #isLogOut>
+  You're logged out...
+</ng-template>
+
+<h2>ngFor Directive</h2>
+<ul>
+  <li *ngFor="let l of list">
+    {{l}}
+  </li>
+</ul>
+
+<h2>ngFor Directive or trackBy</h2>
+<ul>
+  <li *ngFor="let std of studentArr; trackBy: trackByData">
+    {{std.name}}
+  </li>
+</ul>
+
+<h2>ngSwitch Directive</h2>
+<ul [ngSwitch]="logInName">
+  <li *ngSwitchCase="'user'">
+    <p>User is ligged in ...</p>
+  </li>
+  <li *ngSwitchCase="'admin'">
+    <p>Admin is logged in ...</p>
+  </li>
+  <li *ngSwitchDefault>
+    <p>Please choose login name</p>
+  </li>
+</ul>
+
+<!-- Attribute Directive -->
+<h2>ngStyle Directive</h2>
+<p [ngStyle]="{'color':'blue','font-size':'14px'}">
+  Paragraph style is applied using ngStyle
+</p>
+
+<div class="container">
+  <h2>ngClass Example</h2>
+  <div *ngFor="let user of users" [ngClass]="{
+    'highlight':user.userName==='User1' }">
+    {{user.userName}}
+  </div>
+</div>
+
+<div>
+  <h2>Adding Parameters</h2>
+  Today's date:-{{presentDate}}
+</div>
+
+<div>
+  <h2>Add Date Pipe</h2>
+  Today's date:-{{presentDate | date}}
+</div>
+
+<div>
+  <h2>Parameters in Date</h2>
+  Short date : - {{ presentDate | date:'shortDate' }} <br/>
+  Full date : - {{ presentDate | date : 'fullDate' }} <br/>
+  Formatted date : - {{ presentDate | date : 'M/dd/yyyy' }} <br />
+  Hours and minutes : - {{ presentDate | date :'h:mm'}}
+</div>
+
+<div>
+  <h2>Chained Pipes</h2>
+  Date with Uppercase : - {{ presentDate | date: 'fullDate' | uppercase }} <br/>
+  Date with Lowercase : - {{ presentDate | date: 'medium' | lowercase }}
+</div>
