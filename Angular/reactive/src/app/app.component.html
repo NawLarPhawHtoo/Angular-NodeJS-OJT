@@ -3,7 +3,7 @@
   The summation of numbers ( <span *ngFor="let num of numbers">{{num}}</span>) is {{ val1}}
 </div>
 <div>
-  The summation of filtered numbers ( <span *ngFor="let num of filteredNumbers" >{{num}}</span>) is {{val2}}
+  The summation of filtered numbers ( <span *ngFor="let num of filteredNumbers">{{num}}</span>) is {{val2}}
 </div>
 <div>
   The summation of processed numbers ( <span *ngFor="let num of processedNumbers">{{num}}</span>) is {{val3}}
@@ -12,5 +12,20 @@
   The response from the API is <em>{{apiMessage}}</em>
 </div>
 <div>
-  <a  id="counter" href="#">Click Here </a> to increment the counter value. The current counter value is {{ counter }}
+  <a id="counter" href="#">Click Here </a> to increment the counter value. The current counter value is {{ counter }}
+</div><br><br>
+
+<!-- combineLatest Operator-->
+<h3>CombineLatest Operator Example</h3>
+<div>
+  <button id="red">Red</button>
+  <button id="black">Black</button>
+</div>
+<div>Red: <span id="red-total"></span></div>
+<div>Black: <span id="black-total"></span></div>
+<div>Total: <span id="total"></span></div><br><br>
+
+<div> 
+  <h2>Display message using concat with delayed observables</h2>
+  <span id="message"></span>
 </div>
