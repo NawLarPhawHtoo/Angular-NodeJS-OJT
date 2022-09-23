@@ -1,8 +1,9 @@
 import { Component, Injectable, OnInit } from '@angular/core';
-import { Observable, of, range, from, fromEvent, interval, merge, timer, combineLatest, concat, empty, forkJoin } from 'rxjs';
+import { Observable, of, range, from, fromEvent, generate, interval, merge, timer, combineLatest, concat, empty, forkJoin } from 'rxjs';
 import { ajax } from 'rxjs/ajax';
-import { filter, map, mergeAll, mergeMapTo, catchError, take, combineAll, mapTo, startWith, withLatestFrom, scan, tap, delay, concatAll, mergeMap } from 'rxjs/operators';
+import { filter, map, mergeAll, mergeMapTo, share, catchError, retryWhen, delayWhen, take, combineAll, mapTo, startWith, withLatestFrom, scan, tap, delay, concatAll, mergeMap } from 'rxjs/operators';
 import { resolve } from 'url';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-root',
@@ -177,6 +178,16 @@ export class AppComponent implements OnInit {
       complete: () => console.log('This is how it ends!'),
     });
 
+    //Observables completing after different durations
+    const exampleForkJoin = forkJoin({
+      sourceOne: of('Hello'),
+      sourceTwo: of('World').pipe(delay(1000)),
+      sourceThree: interval(1000).pipe(take(1)),
+      sourceFour: interval(1000).pipe(take(2)),
+      sourceFive: myPromise('RESULT')
+    });
+    const subscribeForkJoin = exampleForkJoin.subscribe(val => console.log(val));
+
     //merge
     const first = interval(2500);
     const second = interval(2000);
@@ -224,41 +235,102 @@ export class AppComponent implements OnInit {
     const subscribeLatest = exampleLatest.subscribe(val => console.log(val));
 
     //Slower second source
-    const exampleLatestFrom=secondSource.pipe(
+    const exampleLatestFrom = secondSource.pipe(
       withLatestFrom(sourceLatest),
-      map(([first,second])=>{
+      map(([first, second]) => {
         return `Source (1s) : ${first} Latest Form (5s) : ${second}`;
       })
     );
-    const subscribeLatestFrom=exampleLatestFrom.subscribe(val=>console.log(val));
+    const subscribeLatestFrom = exampleLatestFrom.subscribe(val => console.log(val));
 
     //ajax example
-    const githubUsers=`https://api.github.com/users?per_page=2`;
-    const users=ajax.getJSON(githubUsers);
-    const subscribeAjax=users.subscribe(
-      res=>console.log(res),
-      err=>console.log(err)
+    const githubUsers = `https://api.github.com/users?per_page=2`;
+    const users = ajax.getJSON(githubUsers);
+    const subscribeAjax = users.subscribe(
+      res => console.log(res),
+      err => console.log(err)
     );
 
-    //Observable that emits even numbers on timer
-    const evenNumbers=Observable.create(function(observer){
-      let value=0;
-      const interval=setInterval(()=>{
-        if(value % 2 === 0){
+    //create Observable that emits even numbers on timer
+    const evenNumbers = Observable.create(function (observer) {
+      let value = 0;
+      const interval = setInterval(() => {
+        if (value % 2 === 0) {
           observer.next(value);
         }
-        value ++;
-      },1000);
-      return ()=> clearInterval(interval);
+        value++;
+      }, 1000);
+      return () => clearInterval(interval);
     });
-    const subscribeCreate=evenNumbers.subscribe(val=>console.log(`Create Even Numbers : ${val}`));
+    const subscribeCreate = evenNumbers.subscribe(val => console.log(`Create Even Numbers : ${val}`));
 
-    setTimeout(()=>{
+    setTimeout(() => {
       subscribeCreate.unsubscribe();
-    },10000);
+    }, 10000);
 
     // from Observable from string
-    const sourceFrom=from('Hello World');
-    const subscribeFrom=sourceFrom.subscribe(val=>console.log(val));
+    const sourceFrom = from('Hello World');
+    const subscribeFrom = sourceFrom.subscribe(val => console.log(val));
+
+    //generate
+    generate(
+      2,
+      x => x <= 8,
+      x => x + 3
+    ).subscribe(console.log);
+
+    //catchError
+    const myBadPromise = () => new Promise((resolve, reject) => reject('Rejected!'));
+    const sourceError = timer(1000);
+    const exampleError = sourceError.pipe(
+      mergeMap(_ => from(myBadPromise()).pipe(catchError(error => of(`Bad Promise : ${error}`))))
+    );
+    const subscribeError = exampleError.subscribe(val => console.log(val));
+
+    //retryWhen
+    const sourceRetry = interval(1000);
+    const exampleRetry = sourceRetry.pipe(
+      map(val => {
+        if (val > 5) {
+          throw val;
+        }
+        return val;
+      }),
+      retryWhen(errors => errors.pipe(
+        tap(val => console.log(`Value ${val} was too high!`)),
+        delayWhen(val => timer(val * 1000))
+      ))
+    );
+
+    //share
+    const sourceShare = timer(1000);
+
+    const exampleShare = sourceShare.pipe(
+      tap(() => console.log('*** SIDE EFFECT ***')),
+      mapTo('*** RESULT ***')
+    );
+    const subscribeOne = exampleShare.subscribe(val => console.log(val));
+    const subscribeTwo = exampleShare.subscribe(val => console.log(val));
+
+    const sharedExample = exampleShare.pipe(share());
+
+    const subscribeThree = sharedExample.subscribe(val => console.log(val));
+    const subscribeFour = sharedExample.subscribe(val => console.log(val));
+
+    // lodash chunk
+    console.log(_.chunk(['a', 'b', 'c', 'd'], 2));
+
+    console.log(_.chunk(['a', 'b', 'c', 'd'], 3));
+
+    //compact
+    console.log(_.compact([0, 1, false, 2, '', 3]));
+
+    //concat
+    var array = [1];
+    var other = _.concat(array, 2, [3], [[4]]);
+    console.log(other);
+    console.log(array);
+
+
   }
 }
