@@ -1,0 +1,17 @@
+table {
+  width: 100%;
+  table-layout: fixed;
+ 
+}
+
+th, td {
+  overflow: hidden;
+  width: 70px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mat-primary{
+  background-color:#0f22cfc2;
+  color:#ffffff;
+}
