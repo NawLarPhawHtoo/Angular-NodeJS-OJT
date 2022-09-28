@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Angular-Material-Demo": {
+    "Material-Component": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-material-demo",
+            "outputPath": "dist/material-component",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -70,10 +70,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "Angular-Material-Demo:build:production"
+              "browserTarget": "Material-Component:build:production"
             },
             "development": {
-              "browserTarget": "Angular-Material-Demo:build:development"
+              "browserTarget": "Material-Component:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -81,7 +81,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Angular-Material-Demo:build"
+            "browserTarget": "Material-Component:build"
           }
         },
         "test": {
@@ -107,6 +107,6 @@
     }
   },
   "cli": {
-    "analytics": "45357a99-aac2-4631-a099-37dcb784e4b0"
+    "analytics": "64bd0380-5298-4add-b5a5-4dc32f5b125e"
   }
 }

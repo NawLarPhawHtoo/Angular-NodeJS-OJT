@@ -32,7 +32,7 @@ const appRoutes: Routes = [
     LoginComponent,
     CustomerListComponent,
     CustomerCreateComponent,
-    ErrorComponent
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,
