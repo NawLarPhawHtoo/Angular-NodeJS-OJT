@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ExpenseEntry } from '../expense-entry';
 
-
 @Component({
   selector: 'app-expense-entry',
   templateUrl: './expense-entry.component.html',
