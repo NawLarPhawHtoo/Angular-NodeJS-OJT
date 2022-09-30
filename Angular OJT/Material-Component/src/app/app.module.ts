@@ -1,52 +1,81 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
-import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatBadgeModule} from '@angular/material/badge';
 
-import { MatAutocompleteModule} from '@angular/material/autocomplete';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
-import {MatCardModule} from '@angular/material/card';
-
-import { MaterialModule } from './material/material.module';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 import { AutocompleteComponent } from './autocomplete/autocomplete.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BadgeComponent } from './badge/badge.component';
+import { BottomSheetComponent } from './bottom-sheet/bottom-sheet.component';
+import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
+import { BottomSheetOverviewExampleSheetComponent } from './bottom-sheet-overview-example-sheet/bottom-sheet-overview-example-sheet.component';
+import { MatListModule } from '@angular/material/list';
+import { ButtonComponent } from './button/button.component';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
-import { RouterModule,Routes } from '@angular/router';
-
-const appRoutes: Routes = [
-  {
-    path: 'autocomplete', component:AutocompleteComponent
-  }
-  ]
+import {MatCardModule} from '@angular/material/card';
+import { CheckboxComponent } from './checkbox/checkbox.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatRadioModule } from '@angular/material/radio';
+import { ChipsAutocompleteComponent } from './chips-autocomplete/chips-autocomplete.component';
+import {MatChipsModule} from '@angular/material/chips';
+import { DatepickerComponent } from './datepicker/datepicker.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatMomentDateModule} from '@angular/material-moment-adapter';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AutocompleteComponent
+    AutocompleteComponent,
+    BadgeComponent,
+    BottomSheetComponent,
+    BottomSheetOverviewExampleSheetComponent,
+    ButtonComponent,
+    CheckboxComponent,
+    ChipsAutocompleteComponent,
+    DatepickerComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    MatAutocompleteModule,
+    AppRoutingModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
+    MatIconModule,
     MatInputModule,
-    ReactiveFormsModule,
-    MaterialModule,
-    MatToolbarModule,
     MatButtonModule,
+    MatAutocompleteModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatBadgeModule,
+    MatBottomSheetModule,
+    MatListModule,
+    MatButtonToggleModule,
     MatCardModule,
-    RouterModule.forRoot(appRoutes)
+    MatCheckboxModule,
+    MatRadioModule,
+    MatChipsModule,
+    MatDatepickerModule,
+    MatDialogModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
   ],
- 
-  providers: [],
+  providers: [
+    MatDatepickerModule,
+    MatNativeDateModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
