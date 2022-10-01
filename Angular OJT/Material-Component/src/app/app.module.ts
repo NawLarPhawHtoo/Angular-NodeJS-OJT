@@ -34,6 +34,9 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatMomentDateModule} from '@angular/material-moment-adapter';
 import {MatDialogModule} from '@angular/material/dialog';
+import { CardComponent } from './card/card.component';
+import { DialogComponent } from './dialog/dialog.component';
+import { DialogOverviewExampleComponent } from './dialog-overview-example/dialog-overview-example.component';
 
 
 @NgModule({
@@ -46,7 +49,10 @@ import {MatDialogModule} from '@angular/material/dialog';
     ButtonComponent,
     CheckboxComponent,
     ChipsAutocompleteComponent,
-    DatepickerComponent
+    DatepickerComponent,
+    CardComponent,
+    DialogComponent,
+    DialogOverviewExampleComponent
   ],
   imports: [
     BrowserModule,
