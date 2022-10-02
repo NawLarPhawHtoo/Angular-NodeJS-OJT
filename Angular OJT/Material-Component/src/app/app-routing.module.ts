@@ -9,6 +9,12 @@ import { CheckboxComponent } from './checkbox/checkbox.component';
 import { ChipsAutocompleteComponent } from './chips-autocomplete/chips-autocomplete.component';
 import { DatepickerComponent } from './datepicker/datepicker.component';
 import { DialogComponent } from './dialog/dialog.component';
+import { ExpansionPanelComponent } from './expansion-panel/expansion-panel.component';
+import { FormFieldComponent } from './form-field/form-field.component';
+import { GridListComponent } from './grid-list/grid-list.component';
+import { PaginatorComponent } from './paginator/paginator.component';
+import { ProgressBarComponent } from './progress-bar/progress-bar.component';
+import { SlideToggleComponent } from './slide-toggle/slide-toggle.component';
 
 
 const routes: Routes = [
@@ -38,6 +44,24 @@ const routes: Routes = [
   },
   {
     path:'dialog',component: DialogComponent
+  },
+  {
+    path:'expansion-panel',component: ExpansionPanelComponent
+  },
+  {
+    path:'form-field',component: FormFieldComponent
+  },
+  {
+    path:'grid-list',component: GridListComponent
+  },
+  {
+    path:'paginator',component: PaginatorComponent
+  },
+  {
+    path:'progress-bar',component: ProgressBarComponent
+  },
+  {
+    path:'slide-toggle',component: SlideToggleComponent
   }
 ];
 
