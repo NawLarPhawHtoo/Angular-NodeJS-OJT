@@ -51,6 +51,14 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSliderModule } from '@angular/material/slider';
 import { SlideToggleComponent } from './slide-toggle/slide-toggle.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { TabsComponent } from './tabs/tabs.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { ToolbarComponent } from './toolbar/toolbar.component';
+import { TreeComponent } from './tree/tree.component';
+import {MatTreeModule} from '@angular/material/tree';
+import {MatStepperModule} from '@angular/material/stepper';
+import { StepperComponent } from './stepper/stepper.component';
 
 
 @NgModule({
@@ -72,7 +80,11 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     GridListComponent,
     PaginatorComponent,
     ProgressBarComponent,
-    SlideToggleComponent
+    SlideToggleComponent,
+    TabsComponent,
+    ToolbarComponent,
+    TreeComponent,
+    StepperComponent
   ],
   imports: [
     BrowserModule,
@@ -104,7 +116,11 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     MatProgressBarModule,
     MatProgressSpinnerModule,
     MatSliderModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatTreeModule,
+    MatStepperModule
   ],
   providers: [
     MatDatepickerModule,

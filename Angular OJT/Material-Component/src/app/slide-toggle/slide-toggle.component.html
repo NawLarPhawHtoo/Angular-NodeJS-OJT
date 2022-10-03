@@ -1,6 +1,9 @@
-<h1>Slide Toggle using a simple NgModel.</h1>
+<mat-card class="example-card">
+<h1>Slide Toggle Example</h1>
 
 <mat-slide-toggle [(ngModel)]="isChecked">Slide Toggle Checked: {{isChecked}}</mat-slide-toggle>
+
+<mat-divider></mat-divider><br><br>
 
 <p>Slide Toggle inside of a Template-driven form</p>
 
@@ -10,8 +13,8 @@
   <mat-slide-toggle ngModel name="acceptTerms" required>Accept Terms of Service</mat-slide-toggle>
 
   <button mat-raised-button type="submit">Save Settings</button>
-</form>
-
+</form> <br>
+<mat-divider></mat-divider><br>
 <p>Slide Toggle inside of a Reactive form</p>
 
 <form class="example-form" [formGroup]="formGroup" (ngSubmit)="onFormSubmit()" ngNativeValidate>
@@ -23,3 +26,4 @@
 
   <button mat-raised-button type="submit">Save Settings</button>
 </form>
+</mat-card>

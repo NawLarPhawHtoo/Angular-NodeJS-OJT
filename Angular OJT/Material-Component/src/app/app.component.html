@@ -1,19 +1,40 @@
-<h1>Angular Material Components</h1>
-<nav>
-  <a routerLink="/autocomplete">Auto Complete Example</a><br>
-  <a routerLink="/badge">Badge Example</a><br>
-  <a routerLink="/bottom-sheet">Bottom Sheet Example</a><br>
-  <a routerLink="/button">Button Example</a><br>
-  <a routerLink="/card">Card Example</a><br>
-  <a routerLink="/checkbox">Checkbox Example</a><br>
-  <a routerLink="/chips-autocomplete">Chip Auto Complete Example</a><br>
-  <a routerLink="/datepicker"> Date Picker Example</a><br>
-  <a routerLink="/dialog">Dialog Example</a><br>
-  <a routerLink="/expansion-panel">Expansion Panel Example</a><br>
-  <a routerLink="/form-field">Form Field Example</a><br>
-  <a routerLink="/grid-list">Grid List Example</a><br>
-  <a routerLink="/paginator">Paginator Example</a><br>
-  <a routerLink="/progress-bar">Progress Bar Example</a><br>
-  <a routerLink="/slide-toggle">Slide Toggle Example</a><br>
-</nav>
+<p>
+  <mat-toolbar>
+    <button
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with menu icon"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Angular Material Components</span>
+  </mat-toolbar>
+</p>
+<mat-card class="material">
+  <mat-tab-group
+    dynamicHeight
+    [(selectedIndex)]="tabIndex"
+    (selectedTabChange)="tabChange($event)"
+  >
+    <mat-tab label="Auto Complete"> </mat-tab>
+    <mat-tab label="Badge"></mat-tab>
+    <mat-tab label="Bottom Sheet"></mat-tab>
+    <mat-tab label="Button"></mat-tab>
+    <mat-tab label="Card"></mat-tab>
+    <mat-tab label="Check Box"></mat-tab>
+    <mat-tab label="Chip Autocomplete"> </mat-tab>
+    <mat-tab label="Date Picker"></mat-tab>
+    <mat-tab label="Dialog"></mat-tab>
+    <mat-tab label="Expansion Panel"> </mat-tab>
+    <mat-tab label="Form Field"></mat-tab>
+    <mat-tab label="Grid List"></mat-tab>
+    <mat-tab label="Paginator"></mat-tab>
+    <mat-tab label="Progress Bar"></mat-tab>
+    <mat-tab label="Slide Toggle"></mat-tab>
+    <mat-tab label="Tabs"></mat-tab>
+    <mat-tab label="Toolbar"> </mat-tab>
+    <mat-tab label="Tree"></mat-tab>
+    <mat-tab label="Stepper"></mat-tab>
+  </mat-tab-group>
+</mat-card>
 <router-outlet></router-outlet>

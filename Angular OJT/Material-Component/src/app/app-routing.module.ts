@@ -15,58 +15,97 @@ import { GridListComponent } from './grid-list/grid-list.component';
 import { PaginatorComponent } from './paginator/paginator.component';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import { SlideToggleComponent } from './slide-toggle/slide-toggle.component';
-
+import { TabsComponent } from './tabs/tabs.component';
+import { ToolbarComponent } from './toolbar/toolbar.component';
+import { TreeComponent } from './tree/tree.component';
+import { StepperComponent } from './stepper/stepper.component';
 
 const routes: Routes = [
   {
-    path:'autocomplete',component: AutocompleteComponent
+    path: '',
+    redirectTo: '/autocomplete',
+    pathMatch: 'full',
   },
   {
-    path:'badge',component: BadgeComponent
+    path: 'autocomplete',
+    component: AutocompleteComponent,
   },
   {
-    path:'bottom-sheet',component: BottomSheetComponent
+    path: 'badge',
+    component: BadgeComponent,
   },
   {
-    path:'button',component: ButtonComponent
+    path: 'bottom-sheet',
+    component: BottomSheetComponent,
   },
   {
-    path:'card',component: CardComponent
+    path: 'button',
+    component: ButtonComponent,
   },
   {
-    path:'checkbox',component: CheckboxComponent
+    path: 'card',
+    component: CardComponent,
   },
   {
-    path:'chips-autocomplete',component: ChipsAutocompleteComponent
+    path: 'checkbox',
+    component: CheckboxComponent,
   },
   {
-    path:'datepicker',component: DatepickerComponent
+    path: 'chips-autocomplete',
+    component: ChipsAutocompleteComponent,
   },
   {
-    path:'dialog',component: DialogComponent
+    path: 'datepicker',
+    component: DatepickerComponent,
   },
   {
-    path:'expansion-panel',component: ExpansionPanelComponent
+    path: 'dialog',
+    component: DialogComponent,
   },
   {
-    path:'form-field',component: FormFieldComponent
+    path: 'expansion-panel',
+    component: ExpansionPanelComponent,
   },
   {
-    path:'grid-list',component: GridListComponent
+    path: 'form-field',
+    component: FormFieldComponent,
   },
   {
-    path:'paginator',component: PaginatorComponent
+    path: 'grid-list',
+    component: GridListComponent,
   },
   {
-    path:'progress-bar',component: ProgressBarComponent
+    path: 'paginator',
+    component: PaginatorComponent,
   },
   {
-    path:'slide-toggle',component: SlideToggleComponent
-  }
+    path: 'progress-bar',
+    component: ProgressBarComponent,
+  },
+  {
+    path: 'slide-toggle',
+    component: SlideToggleComponent,
+  },
+  {
+    path: 'tabs',
+    component: TabsComponent,
+  },
+  {
+    path: 'toolbar',
+    component: ToolbarComponent,
+  },
+  {
+    path: 'tree',
+    component: TreeComponent,
+  },
+  {
+    path: 'stepper',
+    component: StepperComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
