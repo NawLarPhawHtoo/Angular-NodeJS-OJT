@@ -1,0 +1,11 @@
+<h1>Reactive Form Example</h1>
+<div>
+  <form [formGroup]="formdata" (ngSubmit)="onClickSubmit(formdata.value)">
+    <input type="text" name="userName" placeholder="userName" formControlName="userName">
+    <br><br>
+    <input type="submit" value="Click here">
+  </form>
+</div>
+<div>
+  <p>Textbox result is : {{userName}}</p>
+</div>

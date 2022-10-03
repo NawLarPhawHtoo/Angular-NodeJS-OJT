@@ -1,0 +1,23 @@
+<h1>Reactive Form Validation Example</h1>
+<div>
+  <h2>Required  Field validation</h2>
+
+  <form [formGroup]="requiredForm" novalidate>
+    <div class="form-group">
+      <label for="" class="center-block">Name:
+        <input type="text" class="form-control" formControlName="name">
+      </label> 
+    </div>
+    <div *ngIf="requiredForm?.controls['name'].invalid && requiredForm?.controls['name'].touched" class="alert alert-danger">
+      <div *ngIf="requiredForm?.controls['name'].errors.Required">
+        Name is required.
+      </div>
+    </div>
+  </form>
+  <div>
+    <p>Form Value : {{requiredForm?.value | json}}</p>
+  </div>
+  <div>
+    <p>Form Status : {{ requiredForm?.status | json }}</p>
+  </div>
+</div>

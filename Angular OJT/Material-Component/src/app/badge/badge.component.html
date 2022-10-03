@@ -1,0 +1,39 @@
+<mat-card class="example-card">
+  <h1>Badge Example</h1>
+  <mat-card-content>
+    <span matBadge="4" matBadgeOverlap="false"> Text with a badge</span>
+  </mat-card-content>
+  <mat-card-content>
+    <span matBadge="1" matBadgeSize="large">Text with large badge</span>
+  </mat-card-content>
+  <mat-card-content>
+    Button with a badge on the left
+    <button
+      mat-raised-button
+      color="primary"
+      matBadge="8"
+      matBadgePosition="before"
+      matBadgeColor="accent"
+    >
+      Action
+    </button>
+  </mat-card-content>
+  <mat-card-content>
+    Button toggles badge visibility
+    <button
+      mat-raised-button
+      matBadge="7"
+      [matBadgeHidden]="hidden"
+      (click)="toggleBadgeVisibility()"
+    >
+      Hide
+    </button>
+  </mat-card-content>
+  <mat-card-content>
+    Icon with Badge
+    <mat-icon matBadge="15" matBadgeColor="warn"> home </mat-icon>
+    <span class="cdk-visually-hidden">
+      Example with a home icon with overlaid badge showing the number 15
+    </span>
+  </mat-card-content>
+</mat-card>
