@@ -6,11 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./checkbox.component.scss']
 })
 export class CheckboxComponent implements OnInit {
-
-  checked: boolean = false;
-  indeterminate: boolean = false;
-  labelPosition:'before'| 'after'='after';
-  disabled: boolean = false;
+  checked = false;
+  indeterminate = false;
+  labelPosition: 'before' | 'after' = 'after';
+  disabled = false;
 
   constructor() { }
 

@@ -1,64 +1,65 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import {COMMA, ENTER} from '@angular/cdk/keycodes';
+import {Component, ElementRef, ViewChild} from '@angular/core';
 import {FormControl} from '@angular/forms';
-import { Observable} from 'rxjs';
-import { map, startWith } from 'rxjs/operators';
-import { COMMA,ENTER} from '@angular/cdk/keycodes';
-import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
-import { MatChipInputEvent} from '@angular/material/chips';
+import {MatAutocompleteSelectedEvent} from '@angular/material/autocomplete';
+import {MatChipInputEvent} from '@angular/material/chips';
+import {Observable} from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
+
 @Component({
   selector: 'app-chips-autocomplete',
   templateUrl: './chips-autocomplete.component.html',
   styleUrls: ['./chips-autocomplete.component.scss']
 })
-export class ChipsAutocompleteComponent {
+export class ChipsAutocompleteComponent{
 
-  separatorKeysCodes:number[] = [ENTER,COMMA];
-  fruitCtrl=new FormControl ('');
-  filteredFruits:Observable<string[]>;
+  separatorKeysCodes: number[] = [ENTER, COMMA];
+  fruitCtrl = new FormControl('');
+  filteredFruits: Observable<string[]>;
+  fruits: string[] = ['Lemon'];
+  allFruits: string[] = ['Apple', 'Lemon', 'Lime', 'Orange', 'Strawberry'];
 
-  fruits:string[] = ['Lemon'];
-  allFruits:string[] = ['Apple','Lemon','Orange','Lime','Strawberry'];
-
-  @ViewChild('fruitInput')
-  fruitInput!: ElementRef<HTMLInputElement>;
+  @ViewChild('fruitInput') fruitInput: ElementRef<HTMLInputElement> | any;
 
   constructor() {
-    this.filteredFruits=this.fruitCtrl.valueChanges.pipe(
+    this.filteredFruits = this.fruitCtrl.valueChanges.pipe(
       startWith(null),
-      map((fruit:string| null) => (fruit ? this._filter(fruit):this.allFruits.slice())),
+      map((fruit: string | null) => (fruit ? this._filter(fruit) : this.allFruits.slice())),
     );
-   }
+  }
 
-   add(event:MatChipInputEvent):void {
-    const value=(event.value || '').trim();
+  add(event: MatChipInputEvent): void {
+    const value = (event.value || '').trim();
 
-    if(value){
+    // Add our fruit
+    if (value) {
       this.fruits.push(value);
     }
 
+    // Clear the input value
     event.chipInput!.clear();
 
     this.fruitCtrl.setValue(null);
-    
-   }
+  }
 
-   remove(fruit:string):void {
-    const index=this.fruits.indexOf(fruit);
+  remove(fruit: string): void {
+    const index = this.fruits.indexOf(fruit);
 
-    if(index >= 0) {
-      this.fruits.splice(index,1);
+    if (index >= 0) {
+      this.fruits.splice(index, 1);
     }
-   }
+  }
 
-   selected(event:MatAutocompleteSelectedEvent):void {
+  selected(event: MatAutocompleteSelectedEvent): void {
     this.fruits.push(event.option.viewValue);
-    this.fruitInput.nativeElement.value='';
+    this.fruitInput.nativeElement.value = '';
     this.fruitCtrl.setValue(null);
-   }
-  private _filter(value:string):string[] {
+  }
+
+  private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
 
     return this.allFruits.filter(fruit => fruit.toLowerCase().includes(filterValue));
-
   }
+
 }

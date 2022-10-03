@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {MatDialog, MatDialogRef} from '@angular/material/dialog';
-import { DialogAnimationsExampleDialogComponent } from '../dialog-animations-example-dialog/dialog-animations-example-dialog.component';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { DialogOverviewExampleComponent } from '../dialog-overview-example/dialog-overview-example.component';
+
+export interface DialogData {
+  animal: string;
+  name: string;
+}
 
 @Component({
   selector: 'app-dialog',
@@ -8,14 +13,20 @@ import { DialogAnimationsExampleDialogComponent } from '../dialog-animations-exa
   styleUrls: ['./dialog.component.scss']
 })
 export class DialogComponent implements OnInit {
+  animal: string | undefined;
+  name: string | undefined;
 
-  constructor(public dialog:MatDialog) { }
+  constructor(public dialog: MatDialog) {}
 
-  openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
-    this.dialog.open(DialogAnimationsExampleDialogComponent, {
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogOverviewExampleComponent, {
       width: '250px',
-      enterAnimationDuration,
-      exitAnimationDuration,
+      data: {name: this.name, animal: this.animal},
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.animal = result;
     });
   }
 

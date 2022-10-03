@@ -1,47 +1,72 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { AutocompleteComponent } from './autocomplete/autocomplete.component';
 import { BadgeComponent } from './badge/badge.component';
-import{ BottomSheetComponent} from './bottom-sheet/bottom-sheet.component';
+import { BottomSheetComponent } from './bottom-sheet/bottom-sheet.component';
 import { ButtonComponent } from './button/button.component';
+import { CardComponent } from './card/card.component';
 import { CheckboxComponent } from './checkbox/checkbox.component';
 import { ChipsAutocompleteComponent } from './chips-autocomplete/chips-autocomplete.component';
 import { DatepickerComponent } from './datepicker/datepicker.component';
 import { DialogComponent } from './dialog/dialog.component';
+import { ExpansionPanelComponent } from './expansion-panel/expansion-panel.component';
+import { FormFieldComponent } from './form-field/form-field.component';
+import { GridListComponent } from './grid-list/grid-list.component';
+import { PaginatorComponent } from './paginator/paginator.component';
+import { ProgressBarComponent } from './progress-bar/progress-bar.component';
+import { SlideToggleComponent } from './slide-toggle/slide-toggle.component';
+
+
 const routes: Routes = [
   {
-    path:'autocomplete', component: AutocompleteComponent,
+    path:'autocomplete',component: AutocompleteComponent
   },
   {
-    path:'badge', component: BadgeComponent,
+    path:'badge',component: BadgeComponent
   },
   {
-    path:'bottom-sheet', component: BottomSheetComponent,
+    path:'bottom-sheet',component: BottomSheetComponent
   },
   {
-    path:'button', component: ButtonComponent,
+    path:'button',component: ButtonComponent
   },
   {
-    path:'checkbox', component: CheckboxComponent,
-
+    path:'card',component: CardComponent
   },
   {
-    path:'chips-autocomplete', component: ChipsAutocompleteComponent,
+    path:'checkbox',component: CheckboxComponent
   },
   {
-    path:'datepicker', component: DatepickerComponent,
+    path:'chips-autocomplete',component: ChipsAutocompleteComponent
   },
   {
-    path:'dialog', component: DialogComponent,
+    path:'datepicker',component: DatepickerComponent
+  },
+  {
+    path:'dialog',component: DialogComponent
+  },
+  {
+    path:'expansion-panel',component: ExpansionPanelComponent
+  },
+  {
+    path:'form-field',component: FormFieldComponent
+  },
+  {
+    path:'grid-list',component: GridListComponent
+  },
+  {
+    path:'paginator',component: PaginatorComponent
+  },
+  {
+    path:'progress-bar',component: ProgressBarComponent
+  },
+  {
+    path:'slide-toggle',component: SlideToggleComponent
   }
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule.forRoot(routes)
-  ],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -34,6 +34,23 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatMomentDateModule} from '@angular/material-moment-adapter';
 import {MatDialogModule} from '@angular/material/dialog';
+import { CardComponent } from './card/card.component';
+import { DialogComponent } from './dialog/dialog.component';
+import { DialogOverviewExampleComponent } from './dialog-overview-example/dialog-overview-example.component';
+import { ExpansionPanelComponent } from './expansion-panel/expansion-panel.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { FormFieldComponent } from './form-field/form-field.component';
+import { MatSelectModule } from '@angular/material/select';
+import { GridListComponent } from './grid-list/grid-list.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { PaginatorComponent } from './paginator/paginator.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { ProgressBarComponent } from './progress-bar/progress-bar.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSliderModule } from '@angular/material/slider';
+import { SlideToggleComponent } from './slide-toggle/slide-toggle.component';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 
 @NgModule({
@@ -46,7 +63,16 @@ import {MatDialogModule} from '@angular/material/dialog';
     ButtonComponent,
     CheckboxComponent,
     ChipsAutocompleteComponent,
-    DatepickerComponent
+    DatepickerComponent,
+    CardComponent,
+    DialogComponent,
+    DialogOverviewExampleComponent,
+    ExpansionPanelComponent,
+    FormFieldComponent,
+    GridListComponent,
+    PaginatorComponent,
+    ProgressBarComponent,
+    SlideToggleComponent
   ],
   imports: [
     BrowserModule,
@@ -71,6 +97,14 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatDialogModule,
     MatNativeDateModule,
     MatDatepickerModule,
+    MatExpansionModule,
+    MatSelectModule,
+    MatGridListModule,
+    MatPaginatorModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule,
+    MatSliderModule,
+    MatSlideToggleModule
   ],
   providers: [
     MatDatepickerModule,

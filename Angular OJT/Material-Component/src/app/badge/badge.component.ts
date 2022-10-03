@@ -7,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BadgeComponent implements OnInit {
 
-  hidden: boolean = false;
+  hidden = false;
 
-  toggleBadgeVisibility(){
-    this.hidden =!this.hidden;
+  toggleBadgeVisibility() {
+    this.hidden = !this.hidden;
   }
 
   constructor() { }
