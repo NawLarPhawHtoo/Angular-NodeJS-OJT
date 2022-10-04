@@ -11,13 +11,19 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatTableModule} from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import { LoginComponent } from './login/login.component';
+import { MatCardModule } from '@angular/material/card';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ExpenseEntryComponent,
     ExpenseEntryListComponent,
-    DebugComponent
+    DebugComponent,
+    LoginComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +32,10 @@ import {MatIconModule} from '@angular/material/icon';
     HttpClientModule,
     MatTableModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatCardModule ,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
