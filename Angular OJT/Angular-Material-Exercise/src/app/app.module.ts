@@ -19,6 +19,8 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list'; 
 import { MatMenuModule } from '@angular/material/menu';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSortModule } from '@angular/material/sort';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     HomeComponent,
     LayoutComponent,
     HeaderComponent,
-    SidenavListComponent
+    SidenavListComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,9 +44,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatIconModule,
     MatListModule,
     MatMenuModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatSortModule,
+    MatDialogModule,
   ],
-  providers: [],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
