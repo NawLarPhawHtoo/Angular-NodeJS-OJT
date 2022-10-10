@@ -15,7 +15,7 @@ const port = process.env.PORT;
 app.use(body_parser_1.default.json());
 app.use(body_parser_1.default.urlencoded({ extended: false }));
 app.use((0, cors_1.default)());
-app.use('/api/owners', owner_route_1.default);
+app.use('/api', owner_route_1.default);
 app.get('/', (req, res) => {
     res.send('Express + TypeScript Server');
 });

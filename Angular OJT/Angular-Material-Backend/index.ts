@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
-app.use('/api/owners',ownerRoute);
+app.use('/api',ownerRoute);
 
 app.get('/', (req:Request, res:Response) => {
   res.send('Express + TypeScript Server');

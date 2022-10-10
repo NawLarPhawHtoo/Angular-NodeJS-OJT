@@ -4,12 +4,12 @@ import { getOwners,createOwner,findOwner,updateOwner,deleteOwner } from "../cont
 const router=express.Router();
 
 router
-  .route('/')
+  .route('/owners')
   .get(getOwners)
   .post(createOwner)
 
 router
- .route('/:id')
+ .route('owners/:id')
  .get(findOwner)
  .put(updateOwner)
  .delete(deleteOwner)

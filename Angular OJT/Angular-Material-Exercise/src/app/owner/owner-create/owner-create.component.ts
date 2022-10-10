@@ -55,7 +55,8 @@ export class OwnerCreateComponent implements OnInit {
       address:ownerFormValue.address
 
     }
-    let apiUrl='api/owners';
+    let apiUrl = '/owners';
+    
     this.repository.create(apiUrl,owner).subscribe(res=>{
       let dialogRef=this.dialog.open(SuccessDialogComponent,this.dialogConfig);
 
